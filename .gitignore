@@ -1,0 +1,27 @@
+# Python environments
+venv/
+venv_tf/
+.venv_tf/
+env311/
+ids_env/
+
+# Python cache
+**pycache**/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Model weights and large artifacts
+*.joblib
+*.pt
+*.pth
+*.keras
+*.h5
+
+# Large datasets
+data/raw/
+
+# System files
+.DS_Store
+Thumbs.db

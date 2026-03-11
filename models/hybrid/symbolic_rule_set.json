@@ -1,0 +1,284 @@
+{
+  "random_state": 42,
+  "tree_rules": [
+    {
+      "id": "TREE_RULE_1",
+      "source": "decision_tree",
+      "weight": 0.3441268670477595,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          "<=",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_http",
+          "<=",
+          0.5
+        ],
+        [
+          "numeric__dst_bytes",
+          "<=",
+          -0.004970636917278171
+        ],
+        [
+          "numeric__logged_in",
+          "<=",
+          0.19973090291023254
+        ]
+      ],
+      "text": "IF numeric__src_bytes <= -0.0077 AND categorical__service_http <= 0.5000 AND numeric__dst_bytes <= -0.0050 AND numeric__logged_in <= 0.1997 THEN attack_confidence += 0.34"
+    },
+    {
+      "id": "TREE_RULE_2",
+      "source": "decision_tree",
+      "weight": 0.2846153846153846,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          "<=",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_http",
+          "<=",
+          0.5
+        ],
+        [
+          "numeric__dst_bytes",
+          ">",
+          -0.004970636917278171
+        ],
+        [
+          "categorical__service_finger",
+          "<=",
+          0.5
+        ]
+      ],
+      "text": "IF numeric__src_bytes <= -0.0077 AND categorical__service_http <= 0.5000 AND numeric__dst_bytes > -0.0050 AND categorical__service_finger <= 0.5000 THEN attack_confidence += 0.28"
+    },
+    {
+      "id": "TREE_RULE_3",
+      "source": "decision_tree",
+      "weight": 0.35,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          "<=",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_http",
+          ">",
+          0.5
+        ],
+        [
+          "numeric__dst_host_count",
+          "<=",
+          0.7072828114032745
+        ],
+        [
+          "numeric__dst_host_srv_serror_rate",
+          ">",
+          0.7763727456331253
+        ]
+      ],
+      "text": "IF numeric__src_bytes <= -0.0077 AND categorical__service_http > 0.5000 AND numeric__dst_host_count <= 0.7073 AND numeric__dst_host_srv_serror_rate > 0.7764 THEN attack_confidence += 0.35"
+    },
+    {
+      "id": "TREE_RULE_4",
+      "source": "decision_tree",
+      "weight": 0.34645868465430013,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          "<=",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_http",
+          ">",
+          0.5
+        ],
+        [
+          "numeric__dst_host_count",
+          ">",
+          0.7072828114032745
+        ],
+        [
+          "numeric__count",
+          ">",
+          -0.68460813164711
+        ]
+      ],
+      "text": "IF numeric__src_bytes <= -0.0077 AND categorical__service_http > 0.5000 AND numeric__dst_host_count > 0.7073 AND numeric__count > -0.6846 THEN attack_confidence += 0.35"
+    },
+    {
+      "id": "TREE_RULE_5",
+      "source": "decision_tree",
+      "weight": 0.30048780487804877,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          ">",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_ecr_i",
+          "<=",
+          0.5
+        ],
+        [
+          "numeric__src_bytes",
+          "<=",
+          -0.0009382049611303955
+        ],
+        [
+          "numeric__num_failed_logins",
+          ">",
+          6.970690885558724
+        ]
+      ],
+      "text": "IF numeric__src_bytes > -0.0077 AND categorical__service_ecr_i <= 0.5000 AND numeric__src_bytes <= -0.0009 AND numeric__num_failed_logins > 6.9707 THEN attack_confidence += 0.30"
+    },
+    {
+      "id": "TREE_RULE_6",
+      "source": "decision_tree",
+      "weight": 0.34505776636713736,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          ">",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_ecr_i",
+          "<=",
+          0.5
+        ],
+        [
+          "numeric__src_bytes",
+          ">",
+          -0.0009382049611303955
+        ],
+        [
+          "numeric__dst_host_same_srv_rate",
+          ">",
+          0.7717382907867432
+        ]
+      ],
+      "text": "IF numeric__src_bytes > -0.0077 AND categorical__service_ecr_i <= 0.5000 AND numeric__src_bytes > -0.0009 AND numeric__dst_host_same_srv_rate > 0.7717 THEN attack_confidence += 0.35"
+    },
+    {
+      "id": "TREE_RULE_7",
+      "source": "decision_tree",
+      "weight": 0.34827404015498414,
+      "conditions": [
+        [
+          "numeric__src_bytes",
+          ">",
+          -0.007710140896961093
+        ],
+        [
+          "categorical__service_ecr_i",
+          ">",
+          0.5
+        ],
+        [
+          "numeric__src_bytes",
+          ">",
+          -0.007667496334761381
+        ],
+        [
+          "numeric__src_bytes",
+          "<=",
+          -0.007061697077006102
+        ]
+      ],
+      "text": "IF numeric__src_bytes > -0.0077 AND categorical__service_ecr_i > 0.5000 AND numeric__src_bytes > -0.0077 AND numeric__src_bytes <= -0.0071 THEN attack_confidence += 0.35"
+    }
+  ],
+  "domain_rules": [
+    {
+      "id": "DOMAIN_RULE_1_SYN_FLOOD",
+      "source": "domain",
+      "weight": 0.25,
+      "conditions": [
+        [
+          "serror_rate",
+          ">",
+          0.7
+        ],
+        [
+          "srv_serror_rate",
+          ">",
+          0.7
+        ]
+      ],
+      "text": "IF serror_rate > 0.7 AND srv_serror_rate > 0.7 THEN attack_confidence += 0.25"
+    },
+    {
+      "id": "DOMAIN_RULE_2_BRUTE_FORCE",
+      "source": "domain",
+      "weight": 0.2,
+      "conditions": [
+        [
+          "logged_in",
+          "==",
+          0.0
+        ],
+        [
+          "num_failed_logins",
+          ">",
+          3.0
+        ]
+      ],
+      "text": "IF logged_in == 0 AND num_failed_logins > 3 THEN attack_confidence += 0.20"
+    },
+    {
+      "id": "DOMAIN_RULE_3_PORT_SCAN",
+      "source": "domain",
+      "weight": 0.2,
+      "conditions": [
+        [
+          "dst_host_count",
+          ">",
+          255.0
+        ],
+        [
+          "same_srv_rate",
+          "<",
+          0.1
+        ]
+      ],
+      "text": "IF dst_host_count > dynamic_threshold AND same_srv_rate < dynamic_threshold THEN attack_confidence += 0.20"
+    },
+    {
+      "id": "DOMAIN_RULE_4_SUSPICIOUS_FLOW",
+      "source": "domain",
+      "weight": 0.15,
+      "conditions": [
+        [
+          "src_bytes",
+          ">",
+          882.0
+        ],
+        [
+          "dst_bytes",
+          "<",
+          0.0
+        ]
+      ],
+      "text": "IF src_bytes is very high AND dst_bytes is very low THEN attack_confidence += 0.15"
+    }
+  ],
+  "fusion_weights": {
+    "xgb": 0.45,
+    "cnn": 0.35,
+    "rules": 0.2
+  },
+  "adaptive_thresholds": {
+    "rule_confidence_high": 0.7,
+    "strong_disagreement": 0.5
+  }
+}
